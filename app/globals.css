@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-lake: #0A2540;
+  --color-racing: #E63946;
+  --color-mist: #D4A574;
+  --color-bg: #0D0D0D;
+  --color-text: #FFFFFF;
+  --color-text-muted: #94A3B8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-racing to-mist;
+  }
+
+  .hero-pattern {
+    background-image:
+      linear-gradient(135deg, rgba(10, 37, 64, 0.1) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(10, 37, 64, 0.1) 25%, transparent 25%);
+    background-size: 60px 60px;
+  }
+}
