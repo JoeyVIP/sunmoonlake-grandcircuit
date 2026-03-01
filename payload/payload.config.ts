@@ -8,12 +8,12 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
+  secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   admin: {
     user: 'users',
     meta: {
       titleSuffix: '- 2028 日月潭環潭大賽車 CMS',
-      favicon: '/favicon.ico',
     },
   },
   collections: [
