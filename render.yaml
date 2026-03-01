@@ -1,12 +1,20 @@
+databases:
+  - name: sunmoonlake-db
+    databaseName: sunmoonlake
+    user: sunmoonlake
+
 services:
   - type: web
     name: sunmoonlake-grandcircuit
-    env: node
+    runtime: node
+    plan: starter
     buildCommand: npm install --legacy-peer-deps && npm run build
     startCommand: npm start
     envVars:
       - key: DATABASE_URI
-        sync: false
+        fromDatabase:
+          name: sunmoonlake-db
+          property: connectionString
       - key: PAYLOAD_SECRET
         generateValue: true
       - key: NEXT_PUBLIC_SITE_URL
